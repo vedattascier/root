@@ -1,83 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>root.sh README</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        code {
-            background: #f4f4f4;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-        pre {
-            background: #f4f4f4;
-            padding: 10px;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
+# `root.sh`
 
-<h1>root.sh</h1>
+`root.sh` bash betiği, belirli bir kullanıcıya kök (root) yetkileri vermek ve gerekli gruplara eklemek için otomatik bir çözüm sunar. Bu betik, kullanıcı adı girildikten sonra kullanıcının sudo yetkilerine sahip olmasını sağlar ve gerekli gruplara ekler.
 
-<p><code>root.sh</code> bash betiği, belirli bir kullanıcıya kök (root) yetkileri vermek ve gerekli gruplara eklemek için otomatik bir çözüm sunar. Bu betik, kullanıcı adı girildikten sonra kullanıcının sudo yetkilerine sahip olmasını sağlar ve gerekli gruplara ekler.</p>
+## Özellikler
 
-<h2>Özellikler</h2>
-<ul>
-    <li>Kullanıcı adını alır ve bu kullanıcının var olup olmadığını kontrol eder.</li>
-    <li>Kullanıcıyı <code>/etc/sudoers</code> dosyasına ekler ve şifre girmeden tüm komutları çalıştırma izni verir.</li>
-    <li>Kullanıcıyı <code>sudo</code> grubuna ekler veya <code>wheel</code> grubunu kullanıyorsanız bu gruba da ekler.</li>
-    <li>Kullanıcı bulunamazsa, hata mesajı gösterir.</li>
-</ul>
+- **Kullanıcı Adını Alır:** Kullanıcıdan sudo yetkisi vermek istediği kullanıcı adını alır.
+- **Kullanıcının Var Olup Olmadığını Kontrol Eder:** Girilen kullanıcı adının mevcut olup olmadığını kontrol eder.
+- **Sudo Yetkisi Ekler:** Kullanıcıyı `/etc/sudoers` dosyasına ekler ve şifre girmeden tüm komutları çalıştırma izni verir. Eğer kullanıcı zaten sudoers dosyasında varsa, tekrar eklenmez.
+- **Sudo Grubuna Ekler:** Kullanıcıyı `sudo` grubuna ekler. Alternatif olarak, `wheel` grubunu kullanıyorsanız ilgili satırın yorumunu kaldırarak `wheel` grubuna da ekleyebilirsiniz.
+- **Hata Yönetimi:** Eğer kullanıcı adı bulunamazsa, uygun bir hata mesajı gösterir.
 
-<h2>Kullanım</h2>
-<ol>
-    <li><strong>Betik İndirme ve İzin Verme:</strong>
-        <pre><code>wget https://github.com/your-repo/root.sh
-chmod +x root.sh
-        </code></pre>
-    </li>
-    <li><strong>Betiği Çalıştırma:</strong>
-        <pre><code>sudo ./root.sh
-        </code></pre>
-    </li>
-    <li>Betik çalıştırıldığında sizden sudo yetkisi vermek istediğiniz kullanıcı adını girmeniz istenecek. Girilen kullanıcı adına göre işlemler yapılacaktır.</li>
-</ol>
+## Kullanım
 
-<h2>Gereksinimler</h2>
-<ul>
-    <li><code>sudo</code> komutuna erişim ve gerekli izinler</li>
-    <li><code>/etc/sudoers</code> dosyasına yazma izni</li>
-</ul>
+1. **Betik İndirme ve İzin Verme:**
+    ```bash
+    wget https://github.com/vedattascier/sudo/raw/main/root.sh
+    chmod +x root.sh
+    ```
 
-<h2>Uyarılar</h2>
-<ul>
-    <li>Betiği çalıştırmadan önce <code>/etc/sudoers</code> dosyasını manuel olarak yedeklemeniz önerilir. Yanlış yapılandırmalar sistemi hatalı hale getirebilir.</li>
-    <li>Betiği yalnızca güvenilir ortamda kullanın ve sisteminizin kök yetkilerini yönetirken dikkatli olun.</li>
-</ul>
+2. **Betiği Çalıştırma:**
+    ```bash
+    sudo ./root.sh
+    ```
 
-<h2>Lisans</h2>
-<p>Bu proje <a href="LICENSE">MIT Lisansı</a> altında lisanslanmıştır.</p>
+3. Betik çalıştırıldığında sizden sudo yetkisi vermek istediğiniz kullanıcı adını girmenizi isteyecek. Girilen kullanıcı adına göre işlemler tamamlanacaktır.
 
-<h2>İletişim</h2>
-<p>Sorularınız veya önerileriniz için <a href="https://github.com/your-repo/root.sh/issues">GitHub Issues</a> sayfasını kullanabilirsiniz.</p>
+## Gereksinimler
 
-</body>
-</html>
+- `sudo` komutuna erişim ve gerekli izinler
+- `/etc/sudoers` dosyasına yazma izni
+
+## Uyarılar
+
+- Betiği çalıştırmadan önce `/etc/sudoers` dosyasını manuel olarak yedeklemeniz önerilir. Yanlış yapılandırmalar sistemi hatalı hale getirebilir.
+- Betiği yalnızca güvenilir ortamda kullanın ve sisteminizin kök yetkilerini yönetirken dikkatli olun.
+
+## Lisans
+
+Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
+
+## İletişim
+
+Sorularınız veya önerileriniz için [GitHub Issues](https://github.com/vedattascier/sudo/issues) sayfasını kullanabilirsiniz.
+
