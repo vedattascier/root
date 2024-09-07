@@ -14,7 +14,7 @@
 
 1. **Betik İndirme ve İzin Verme:**
     ```bash
-    wget https://github.com/vedattascier/sudo/raw/main/root.sh
+    wget https://github.com/vedattascier/root/raw/main/root.sh
     chmod +x root.sh
     ```
 
