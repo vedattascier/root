@@ -20,7 +20,7 @@
 
 2. **Betiği Çalıştırma:**
     ```bash
-    sudo ./root.sh
+    sudo bash root.sh
     ```
 
 3. Betik çalıştırıldığında sizden sudo yetkisi vermek istediğiniz kullanıcı adını girmenizi isteyecek. Girilen kullanıcı adına göre işlemler tamamlanacaktır.
